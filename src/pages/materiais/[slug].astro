@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import MITLayout from '../../layouts/MITLayout.astro';
 import LeadCaptureForm from '../../components/LeadCaptureForm.astro';
 
 export async function getStaticPaths() {
@@ -16,15 +16,29 @@ const { Content } = await entry.render();
 const downloadPath = `/downloads/${entry.data.fileName}`;
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
-  <article>
-    <h1>{entry.data.title}</h1>
-    <p>{entry.data.description}</p>
-    <Content />
-    <LeadCaptureForm
-      materialSlug={entry.slug}
-      ctaLabel={entry.data.ctaLabel}
-      downloadPath={downloadPath}
-    />
-  </article>
-</BaseLayout>
+<MITLayout title={entry.data.title} description={entry.data.description}>
+  <section class="hero">
+    <div class="container-narrow">
+      <div class="card-meta mb-md">Material Gratuito</div>
+      <h1>{entry.data.title}</h1>
+      <p class="text-muted" style="font-size:1.25rem;">
+        {entry.data.description}
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-narrow">
+      <Content />
+      
+      <div class="lead-box">
+        <h3>Receba o material no seu e-mail</h3>
+        <LeadCaptureForm
+          materialSlug={entry.slug}
+          ctaLabel={entry.data.ctaLabel}
+          downloadPath={downloadPath}
+        />
+      </div>
+    </div>
+  </section>
+</MITLayout>
