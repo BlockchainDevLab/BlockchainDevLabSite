@@ -93,7 +93,7 @@ Edite `src/config/site.ts`:
 
 ```typescript
 export const siteConfig = {
-  name: "BlockchainDevLab",
+  name: "Blockchain Dev Lab",
   tagline: "Blockchain Architecture & Security",
   siteUrl: "https://blockchaindevlab.dev",
   email: "contato@blockchaindevlab.dev",

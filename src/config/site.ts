@@ -1,9 +1,9 @@
 import { services } from "@/config/services";
 
 export const siteConfig = {
-  name: "BlockchainDevLab",
+  name: "Blockchain Dev Lab",
   /** The company's full name, used in the footer and the legal line. */
-  legalName: "BlockchainDevLab",
+  legalName: "Blockchain Dev Lab",
   tagline: "Blockchain Architecture & Security",
   /** A sentence under the logo in the footer. */
   summary:
