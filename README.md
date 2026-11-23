@@ -17,6 +17,7 @@ Site estático de conteúdo técnico, cursos e mentoria, construído com [Astro]
 - **Astro 5** com `output: static` — zero JavaScript no servidor
 - **Web3Forms** — recebe os dados do formulário de lead sem backend
 - **Digital Ocean Static Sites** — hospedagem gratuita com deploy automático a cada push
+- **Soehne / Inter fonts** — tipografia do MIT Media Lab (com fallback gratuito)
 
 ## Estrutura do projeto
 
@@ -113,3 +114,4 @@ O formulário de lead aparece automaticamente. Após o envio, o link de download
 
 - O PDF fica em `/downloads/` como URL pública. O formulário de lead é uma barreira comportamental, não técnica — adequado para materiais gratuitos.
 - Os links de checkout (`checkoutUrl`) e calendário (`applicationUrl`) nos arquivos `.md` de cursos e mentoria precisam ser atualizados com seus links reais antes do deploy.
+- **Fontes**: O site usa Soehne (MIT Media Lab) com fallback para Inter (gratuita). Veja `FONTS.md` para opções de licenciamento.
