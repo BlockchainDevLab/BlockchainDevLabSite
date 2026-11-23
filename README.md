@@ -1,117 +1,269 @@
 # BlockchainDevLab Site
 
-Site estático de conteúdo técnico, cursos e mentoria, construído com [Astro](https://astro.build) e hospedado gratuitamente no [Digital Ocean Static Sites](https://docs.digitalocean.com/products/app-platform/concepts/static-site/).
-
-## Conteúdo
-
-| Seção | Rota | Descrição |
-|---|---|---|
-| Início | `/` | Índice geral com links para todas as seções |
-| Artigos | `/blog/[slug]` | Posts técnicos em Markdown |
-| Cursos | `/cursos/[slug]` | Páginas de venda com link para checkout |
-| Mentoria | `/mentoria/[slug]` | Página de aplicação para mentoria individual |
-| Materiais | `/materiais/[slug]` | Lead gate com entrega de PDF via formulário |
+Site de conteúdo técnico, cursos e mentoria sobre blockchain, construído com [Astro](https://astro.build) usando o tema [Lucenta](https://github.com/xocothemes/lucenta).
 
 ## Stack
 
-- **Astro 5** com `output: static` — zero JavaScript no servidor
-- **Web3Forms** — recebe os dados do formulário de lead sem backend
-- **Digital Ocean Static Sites** — hospedagem gratuita com deploy automático a cada push
-- **Soehne / Inter fonts** — tipografia do MIT Media Lab (com fallback gratuito)
+- **Astro 7** — Framework estático moderno
+- **Tailwind CSS 4** — Styling via Vite plugin
+- **Lucenta Theme** — Design bold para portfólios e agências
+- **MDX** — Markdown com componentes
+- **View Transitions** — Transições nativas entre páginas
+- **RSS & Sitemap** — SEO e feeds automáticos
 
-## Estrutura do projeto
+## Características
+
+✨ **Design Premium**
+- Tipografia bold (Epilogue + Mona Sans)
+- Cores específicas por projeto
+- Parallax covers em case studies
+- Animações scroll-driven CSS nativas
+- Grid filtrado de projetos
+
+🎨 **Content Collections**
+- **Work** — Cursos e projetos (case studies)
+- **Journal** — Artigos técnicos com categorias
+- **People** — Time e autores
+
+📱 **100% Responsivo**
+- Mobile menu full-screen
+- Grid adaptativo
+- Touch-friendly
+
+♿ **Acessível**
+- Skip links
+- Landmarks semânticos
+- Suporte a teclado
+- Visible focus states
+- `prefers-reduced-motion` desliga animações
+
+## Estrutura
 
 ```
 src/
-  components/
-    LeadCaptureForm.astro   # Formulário de lead + reveal do link de download
-  content/
-    blog/                   # Artigos (.md)
-    cursos/                 # Páginas de curso (.md)
-    mentoria/               # Páginas de mentoria (.md)
-    materiais/              # Materiais gratuitos (.md)
-    config.ts               # Schema das coleções (Zod)
-  layouts/
-    BaseLayout.astro        # Layout HTML base com nav e estilos globais
-  pages/
-    index.astro
-    blog/[slug].astro
-    cursos/[slug].astro
-    mentoria/[slug].astro
-    materiais/[slug].astro
+  ├── config/            # Configurações centralizadas
+  │   ├── site.ts        # Nome, email, nav, socials
+  │   ├── services.ts    # Serviços oferecidos
+  │   ├── work.ts        # Disciplines (filtros)
+  │   ├── home.ts        # Copy da homepage
+  │   ├── studio.ts      # Sobre nós
+  │   └── contact.ts     # Form + FAQ
+  ├── content/           # Content collections
+  │   ├── work/          # Projetos / Case studies
+  │   ├── people/        # Time / Autores
+  │   └── journal/       # Blog / Artigos
+  ├── components/        # Componentes reutilizáveis
+  ├── layouts/           # Layouts de página
+  ├── pages/             # Rotas do site
+  ├── scripts/           # Motion effects
+  └── styles/            # CSS global
 public/
-  downloads/                # PDFs servidos estaticamente
-.do/
-  app.yaml                  # Spec de deploy para o Digital Ocean App Platform
+  ├── fonts/             # Epilogue + Mona Sans
+  ├── favicon.svg
+  └── og-image.png
 ```
 
-## Desenvolvimento local
+## Desenvolvimento
 
 ```bash
+# Instalar dependências
 npm install
+
+# Dev server (http://localhost:4321)
 npm run dev
+
+# Build para produção
+npm run build
+
+# Preview do build
+npm run preview
+
+# Type checking
+npm run check
+
+# Format code
+npm run format
 ```
 
-O site sobe em `http://localhost:4321`.
+## Customização
 
-## Build
+### 1. Site Settings
+
+Edite `src/config/site.ts`:
+
+```typescript
+export const siteConfig = {
+  name: "BlockchainDevLab",
+  tagline: "Blockchain Architecture & Security",
+  siteUrl: "https://blockchaindevlab.dev",
+  email: "contato@blockchaindevlab.dev",
+  // ...
+};
+```
+
+### 2. Adicionar Projeto
+
+Crie uma pasta em `src/content/work/`:
+
+```bash
+mkdir src/content/work/meu-projeto
+```
+
+Adicione `index.md`:
+
+```yaml
+---
+title: Nome do Projeto
+headline: Tagline curto
+summary: Descrição de 40-240 caracteres
+disciplines: [identity, digital]
+sector: "DeFi"
+year: 2027
+color: "#ff006e"
+ink: "light"
+cover: ./cover.jpg
+coverAlt: "Descrição da imagem"
+stills:
+  - { src: ./still-1.jpg, alt: "Descrição" }
+results:
+  - { value: "10x", label: "ROI" }
+  - { value: "99.9%", label: "Uptime" }
+testimonial:
+  quote: "Texto do depoimento"
+  name: "Nome do Cliente"
+  role: "CEO, Empresa"
+credits:
+  - { role: "Arquitetura", name: "Seu Nome" }
+featured: true
+order: 1
+---
+
+Conteúdo do case study em Markdown...
+```
+
+### 3. Adicionar Artigo
+
+Crie pasta em `src/content/journal/`:
+
+```bash
+mkdir src/content/journal/meu-artigo
+```
+
+Adicione `index.mdx`:
+
+```yaml
+---
+title: Título do Artigo
+description: Resumo do artigo
+date: 2027-01-15
+category: craft
+authors: [seu-slug]
+cover: ./cover.jpg
+coverAlt: "Descrição"
+work: [projeto-relacionado]
+featured: false
+---
+
+Conteúdo em MDX (Markdown + JSX)...
+```
+
+### 4. Adicionar Autor
+
+Crie pasta em `src/content/people/`:
+
+```bash
+mkdir src/content/people/seu-nome
+```
+
+Adicione `index.md` + `portrait.jpg`:
+
+```yaml
+---
+name: Seu Nome
+role: Blockchain Architect
+location: São Paulo, Brasil
+linkedin: https://linkedin.com/in/...
+order: 1
+---
+
+Bio curta (1-2 parágrafos)...
+```
+
+## Design Tokens
+
+Customizar cores em `src/styles/global.css`:
+
+```css
+:root {
+  --paper: #ffffff;      /* Background */
+  --ink: #000000;        /* Text */
+  --signal: #ff006e;     /* Accent */
+  --font-display: Epilogue;
+  --font-sans: Mona Sans;
+}
+```
+
+## Deploy
+
+### Digital Ocean
+
+`.do/app.yaml` já configurado:
+
+```yaml
+static_sites:
+  - name: blockchaindevlab-site
+    build_command: npm ci && npm run build
+    output_dir: dist
+```
+
+### Vercel / Netlify
 
 ```bash
 npm run build
+# Output: dist/
 ```
 
-Gera os arquivos estáticos em `dist/`. Pré-visualize com `npm run preview`.
+Configuração automática (sem `vercel.json` necessário).
 
-## Deploy (Digital Ocean)
+### Cloudflare Pages
 
-O deploy é automático a cada push na branch `main` via `.do/app.yaml`.
-
-**Primeira vez:**
-
-1. Acesse [cloud.digitalocean.com/apps](https://cloud.digitalocean.com/apps) → **Create App**
-2. Conecte o repositório `BlockchainDevLab/BlockchainDevLabSite`, branch `main`
-3. Confirme as configurações detectadas automaticamente pelo `app.yaml`:
-   - Build command: `npm ci && npm run build`
-   - Output dir: `dist`
-4. Adicione a variável de ambiente `WEB3FORMS_KEY` (veja abaixo)
-5. Clique em **Deploy**
-
-## Variáveis de ambiente
-
-| Variável | Escopo | Descrição |
-|---|---|---|
-| `WEB3FORMS_KEY` | Build time | Access Key do [Web3Forms](https://web3forms.com). Obtenha gratuitamente em web3forms.com e configure no painel do Digital Ocean. Nunca commite este valor. |
-
-## Adicionando conteúdo
-
-**Novo artigo:**
 ```bash
-# Crie src/content/blog/meu-artigo.md com o frontmatter:
----
-title: "Título do artigo"
-description: "Descrição curta"
-pubDate: 2025-01-15
-tags: ["solidity", "segurança"]
----
-Conteúdo em Markdown aqui.
+Build command: npm run build
+Build output: dist
 ```
 
-**Novo material gratuito:**
-1. Adicione o PDF em `public/downloads/nome-do-arquivo.pdf`
-2. Crie `src/content/materiais/nome-do-material.md`:
-```markdown
+## Migração
+
+Se você está vindo do layout anterior, veja `MIGRATION.md` para:
+- Mapeamento de URLs antigas → novas
+- Como migrar conteúdo
+- Breaking changes
+- Rollback para versão anterior
+
+## Conteúdo Demo
+
+O tema inclui projetos e artigos de exemplo. **Substitua-os antes do deploy:**
+
+- `src/content/work/*` — Projetos fictícios
+- `src/content/people/*` — Pessoas fictícias
+- `src/content/journal/*` — Artigos demo
+- `src/assets/clients/*` — Logos fictícios
+
+## Licença
+
+- **Código do projeto**: MIT
+- **Lucenta Theme**: MIT ([repositório original](https://github.com/xocothemes/lucenta))
+- **Fontes**: Epilogue e Mona Sans (SIL Open Font License)
+
+## Suporte
+
+Veja a [documentação do Lucenta](https://github.com/xocothemes/lucenta) para:
+- Customização avançada
+- Atributos de motion
+- Content schema detalhado
+- Troubleshooting
+
 ---
-title: "Título do material"
-description: "Descrição curta"
-fileName: "nome-do-arquivo.pdf"
-ctaLabel: "Baixar agora"
----
-```
 
-O formulário de lead aparece automaticamente. Após o envio, o link de download é revelado na página.
-
-## Notas
-
-- O PDF fica em `/downloads/` como URL pública. O formulário de lead é uma barreira comportamental, não técnica — adequado para materiais gratuitos.
-- Os links de checkout (`checkoutUrl`) e calendário (`applicationUrl`) nos arquivos `.md` de cursos e mentoria precisam ser atualizados com seus links reais antes do deploy.
-- **Fontes**: O site usa Soehne (MIT Media Lab) com fallback para Inter (gratuita). Veja `FONTS.md` para opções de licenciamento.
+**Demo**: http://localhost:4321/ (após `npm run dev`)  
+**Live site**: https://blockchaindevlab.dev (quando deploiado)
