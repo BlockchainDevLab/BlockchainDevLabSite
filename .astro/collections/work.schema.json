@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "maxLength": 24
+    },
+    "headline": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 240
+    },
+    "disciplines": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "identity",
+          "digital",
+          "packaging",
+          "campaign",
+          "spatial"
+        ]
+      }
+    },
+    "sector": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "location": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "ink": {
+      "default": "light",
+      "type": "string",
+      "enum": [
+        "light",
+        "dark"
+      ]
+    },
+    "cover": {
+      "type": "string"
+    },
+    "coverAlt": {
+      "type": "string"
+    },
+    "stills": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "src",
+          "alt"
+        ]
+      }
+    },
+    "results": {
+      "default": [],
+      "maxItems": 4,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "label"
+        ]
+      }
+    },
+    "testimonial": {
+      "type": "object",
+      "properties": {
+        "quote": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "quote",
+        "name",
+        "role"
+      ]
+    },
+    "credits": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "role",
+          "name"
+        ]
+      }
+    },
+    "website": {
+      "type": "string"
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "order": {
+      "default": 100,
+      "type": "number"
+    },
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "headline",
+    "summary",
+    "disciplines",
+    "sector",
+    "year",
+    "color",
+    "cover",
+    "coverAlt"
+  ]
+}

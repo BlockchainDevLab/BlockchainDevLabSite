@@ -6,3 +6,4 @@ data/
 .astro/data-store.json
 .astro/settings.json
 dev-server.log
+dev-lucenta.log

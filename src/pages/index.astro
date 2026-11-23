@@ -1,127 +1,39 @@
 ---
-import { getCollection } from 'astro:content';
-import MITLayout from '../layouts/MITLayout.astro';
+import Hero from "@/components/home/Hero.astro";
+import Manifesto from "@/components/home/Manifesto.astro";
+import Proof from "@/components/home/Proof.astro";
+import ServicesList from "@/components/home/ServicesList.astro";
+import WorkStack from "@/components/home/WorkStack.astro";
+import EntryCard from "@/components/journal/EntryCard.astro";
+import SectionHead from "@/components/ui/SectionHead.astro";
+import { journalBlock, selectedWork } from "@/config/home";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getJournal } from "@/lib/journal";
+import { featuredWork, getWork } from "@/lib/work";
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
-).slice(0, 3);
-
-const cursos = await getCollection('cursos');
-const mentorias = await getCollection('mentoria');
-const materiais = await getCollection('materiais');
+const work = await getWork();
+const featured = featuredWork(work).slice(0, selectedWork.limit);
+const entries = (await getJournal()).slice(0, 3);
 ---
 
-<MITLayout title="BlockchainDevLab — Arquitetura, Segurança e Smart Contracts">
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container-narrow">
-      <h1>Onde arquitetura e segurança se encontram.</h1>
-      <p class="text-muted">
-        Exploramos protocolos resilientes, auditoria prática e padrões modulares para construir sistemas descentralizados que funcionam.
-      </p>
-    </div>
-  </section>
-
-  <!-- Featured Content -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Últimos insights</h2>
-        <a href="/blog" class="section-link">Ver todos os artigos →</a>
-      </div>
-      
-      <div class="grid">
-        {posts.map((post) => (
-          <a href={`/blog/${post.slug}`} class="card">
-            <div class="card-image">
-              <!-- Placeholder for future images -->
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-            </div>
-            <div class="card-meta">{post.data.pubDate.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-            <h3 class="card-title">{post.data.title}</h3>
-            <p class="card-description">{post.data.description}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Cursos -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Aprendizado prático</h2>
-      </div>
-      
-      <div class="grid grid-2">
-        {cursos.map((curso) => (
-          <a href={`/cursos/${curso.slug}`} class="card">
-            <div class="card-image">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-            </div>
-            <div class="card-meta">Curso</div>
-            <h3 class="card-title">{curso.data.title}</h3>
-            <p class="card-description">{curso.data.subtitle}</p>
-            <p class="text-mono" style="margin-top:1rem">{curso.data.price}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Mentoria -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Acompanhamento individual</h2>
-      </div>
-      
-      <div class="grid grid-2">
-        {mentorias.map((mentoria) => (
-          <a href={`/mentoria/${mentoria.slug}`} class="card">
-            <div class="card-image">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-            </div>
-            <div class="card-meta">Mentoria</div>
-            <h3 class="card-title">{mentoria.data.title}</h3>
-            <p class="card-description">{mentoria.data.subtitle}</p>
-            <p class="text-mono text-muted" style="margin-top:1rem">{mentoria.data.format}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Materiais Gratuitos -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Recursos abertos</h2>
-      </div>
-      
-      <div class="grid">
-        {materiais.map((material) => (
-          <a href={`/materiais/${material.slug}`} class="card">
-            <div class="card-image">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
-            </div>
-            <div class="card-meta">Material Gratuito</div>
-            <h3 class="card-title">{material.data.title}</h3>
-            <p class="card-description">{material.data.description}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA final -->
-  <section style="text-align:center;">
-    <div class="container-narrow">
-      <h2 class="mb-lg">Exploramos onde as ideias colidem.</h2>
-      <p class="text-muted mb-xl" style="max-width:100%;">
-        Arquitetura modular. Auditoria prática. Padrões de segurança. Junte-se à conversa.
-      </p>
-      <a href="/materiais/guia-arquitetura" class="btn">Começar com material gratuito</a>
-    </div>
-  </section>
-</MITLayout>
+<BaseLayout>
+  <Hero work={work} />
+  <WorkStack work={featured} total={work.length} />
+  <Manifesto />
+  <ServicesList work={work} />
+  <Proof />
+  {
+    entries.length > 0 && (
+      <section class="section pt-0" aria-labelledby="journal-title">
+        <div class="shell">
+          <SectionHead id="journal-title" title={journalBlock.title} link={journalBlock.link} />
+          <div class="mt-[clamp(2.5rem,5vw,4.5rem)] grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            {entries.map((entry, index) => (
+              <EntryCard entry={entry} class={index === 2 ? "sm:max-lg:hidden" : undefined} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
