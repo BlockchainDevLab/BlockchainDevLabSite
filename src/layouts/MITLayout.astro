@@ -1,4 +1,8 @@
 ---
+import '@fontsource/inter/100.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/700.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -13,6 +17,71 @@ const { title, description = 'Blockchain development, security, and architecture
     <meta name="description" content={description} />
     <title>{title}</title>
     <style is:global>
+      /* Fonts */
+      @font-face {
+        font-family: soehne fallback;
+        src: local("Arial");
+        size-adjust: 99.1474%;
+        ascent-override: 104.8943%;
+        descent-override: 23.6012%;
+        line-gap-override: 0%;
+      }
+
+      @font-face {
+        font-family: soehne;
+        src: url(/fonts/soehne-leicht.woff2) format("woff2");
+        font-weight: 100;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: soehne fallback;
+        src: local("Arial");
+        size-adjust: 99.3717%;
+        ascent-override: 104.6575%;
+        descent-override: 23.5479%;
+        line-gap-override: 0%;
+      }
+
+      @font-face {
+        font-family: soehne;
+        src: url(/fonts/soehne-buch.woff2) format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: soehne fallback;
+        src: local("Arial");
+        size-adjust: 99.8204%;
+        ascent-override: 104.1871%;
+        descent-override: 23.4421%;
+        line-gap-override: 0%;
+      }
+
+      @font-face {
+        font-family: soehne;
+        src: url(/fonts/soehne-kraftig.woff2) format("woff2");
+        font-weight: 700;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: soehne-schmal fallback;
+        src: local("Arial");
+        size-adjust: 48.4521%;
+        ascent-override: 214.6448%;
+        descent-override: 48.2951%;
+        line-gap-override: 0%;
+      }
+
+      @font-face {
+        font-family: soehne-schmal;
+        src: url(/fonts/soehne-schmal-kraftig.woff2) format("woff2");
+        font-weight: 100;
+        font-display: swap;
+      }
+
       /* Reset & Base */
       * {
         margin: 0;
@@ -40,11 +109,12 @@ const { title, description = 'Blockchain development, security, and architecture
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-family: soehne, "soehne fallback", 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
         background: var(--white);
         color: var(--black);
         line-height: 1.6;
         font-size: 16px;
+        font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
