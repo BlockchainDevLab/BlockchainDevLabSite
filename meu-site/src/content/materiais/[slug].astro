@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadCaptureForm from '../../components/LeadCaptureForm.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const materiais = await getCollection('materiais');
+  return materiais.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <article>
+    <h1>{entry.data.title}</h1>
+    <p>{entry.data.description}</p>
+    <Content />
+    <LeadCaptureForm materialSlug={entry.slug} ctaLabel={entry.data.ctaLabel} />
+  </article>
+</BaseLayout>

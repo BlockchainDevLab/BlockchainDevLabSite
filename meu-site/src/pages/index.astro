@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export const prerender = true;
+
+const posts = await getCollection('blog');
+const cursos = await getCollection('cursos');
+const mentorias = await getCollection('mentoria');
+const materiais = await getCollection('materiais');
+---
+
+<BaseLayout title="Início — Cursos, Mentoria e Artigos">
+  <h1>Conteúdo Técnico, Cursos e Mentoria</h1>
+  <p>Publicação direta em Markdown e entrega de materiais via e-mail.</p>
+
+  <h2>Cursos</h2>
+  <ul>
+    {cursos.map((c) => <li><a href={`/cursos/${c.slug}`}>{c.data.title}</a> — {c.data.price}</li>)}
+  </ul>
+
+  <h2>Mentoria</h2>
+  <ul>
+    {mentorias.map((m) => <li><a href={`/mentoria/${m.slug}`}>{m.data.title}</a></li>)}
+  </ul>
+
+  <h2>Materiais Gratuitos</h2>
+  <ul>
+    {materiais.map((mat) => <li><a href={`/materiais/${mat.slug}`}>{mat.data.title}</a></li>)}
+  </ul>
+
+  <h2>Últimos Artigos</h2>
+  <ul>
+    {posts.map((p) => <li><a href={`/blog/${p.slug}`}>{p.data.title}</a></li>)}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const cursos = await getCollection('cursos');
+  return cursos.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.subtitle}>
+  <section>
+    <h1>{entry.data.title}</h1>
+    <p>{entry.data.subtitle}</p>
+    <ul>
+      {entry.data.highlights.map((item) => <li>{item}</li>)}
+    </ul>
+    <p><strong>Investimento: {entry.data.price}</strong></p>
+    <a class="btn" href={entry.data.checkoutUrl} target="_blank" rel="noopener">Garantir minha vaga</a>
+    <hr />
+    <Content />
+  </section>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+interface Props {
+  materialSlug: string;
+  ctaLabel: string;
+}
+
+const { materialSlug, ctaLabel } = Astro.props;
+---
+
+<form id="lead-form" class="lead-box" data-slug={materialSlug}>
+  <input type="text" name="name" placeholder="Seu nome" required />
+  <input type="email" name="email" placeholder="Seu melhor e-mail" required />
+  <button type="submit">{ctaLabel}</button>
+  <p id="form-feedback" aria-live="polite"></p>
+</form>
+
+<script>
+  const form = document.getElementById('lead-form') as HTMLFormElement;
+  const feedback = document.getElementById('form-feedback')!;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const formData = new FormData(form);
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      materialSlug: form.dataset.slug,
+    };
+
+    submitBtn.disabled = true;
+    feedback.textContent = 'Enviando link para o seu e-mail...';
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.ok) {
+        feedback.textContent = data.message;
+        form.reset();
+      } else {
+        feedback.textContent = data.error || 'Erro ao enviar. Tente novamente.';
+      }
+    } catch {
+      feedback.textContent = 'Falha de conexão. Tente novamente.';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>

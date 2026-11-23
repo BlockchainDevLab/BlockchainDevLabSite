@@ -1,0 +1,10 @@
+services:
+  site:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./private-assets:/app/private-assets:ro  # Permite atualizar PDFs sem rebuild
+    environment:
+      - DOWNLOAD_SECRET=${DOWNLOAD_SECRET}
+      - LEAD_WEBHOOK_URL=${LEAD_WEBHOOK_URL:-}
+    restart: unless-stopped

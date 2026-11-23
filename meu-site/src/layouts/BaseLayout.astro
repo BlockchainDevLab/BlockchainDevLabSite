@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Cursos, mentorias e artigos técnicos' } = Astro.props;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <style is:global>
+      :root { --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --accent: #38bdf8; }
+      body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
+      header, main, footer { max-width: 820px; margin: 0 auto; padding: 1.5rem; }
+      nav a { color: var(--text); margin-right: 1rem; text-decoration: none; font-weight: 600; }
+      .btn { display: inline-block; background: var(--accent); color: #0f172a; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 700; text-decoration: none; }
+      .lead-box { display: grid; gap: 0.75rem; background: var(--card); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem; }
+      .lead-box input, .lead-box button { padding: 0.75rem; border-radius: 6px; border: none; font-size: 1rem; }
+      .lead-box button { background: var(--accent); color: #0f172a; font-weight: 700; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/blog">Artigos</a>
+        <a href="/cursos/dominio-smart-contracts">Cursos</a>
+        <a href="/mentoria/mentoria-individual">Mentoria</a>
+        <a href="/materiais/guia-arquitetura">Material Gratuito</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
