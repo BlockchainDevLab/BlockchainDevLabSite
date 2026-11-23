@@ -3,8 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadCaptureForm from '../../components/LeadCaptureForm.astro';
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const materiais = await getCollection('materiais');
   return materiais.map((entry) => ({
@@ -15,6 +13,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const downloadPath = `/downloads/${entry.data.fileName}`;
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
@@ -22,6 +21,10 @@ const { Content } = await entry.render();
     <h1>{entry.data.title}</h1>
     <p>{entry.data.description}</p>
     <Content />
-    <LeadCaptureForm materialSlug={entry.slug} ctaLabel={entry.data.ctaLabel} />
+    <LeadCaptureForm
+      materialSlug={entry.slug}
+      ctaLabel={entry.data.ctaLabel}
+      downloadPath={downloadPath}
+    />
   </article>
 </BaseLayout>

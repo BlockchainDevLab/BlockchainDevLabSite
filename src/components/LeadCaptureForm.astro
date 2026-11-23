@@ -2,54 +2,70 @@
 interface Props {
   materialSlug: string;
   ctaLabel: string;
+  downloadPath: string;
 }
 
-const { materialSlug, ctaLabel } = Astro.props;
+const { materialSlug, ctaLabel, downloadPath } = Astro.props;
+
+// Web3Forms access key — sign up free at https://web3forms.com to get yours
+// and set it as WEB3FORMS_KEY in your DO Static Site environment variables.
+// At build time Astro injects it; it is safe to expose in the browser.
+const web3Key = import.meta.env.WEB3FORMS_KEY ?? '';
 ---
 
-<form id="lead-form" class="lead-box" data-slug={materialSlug}>
-  <input type="text" name="name" placeholder="Seu nome" required />
-  <input type="email" name="email" placeholder="Seu melhor e-mail" required />
-  <button type="submit">{ctaLabel}</button>
-  <p id="form-feedback" aria-live="polite"></p>
-</form>
+<div class="lead-box" id={`lead-box-${materialSlug}`}>
+  <form id={`lead-form-${materialSlug}`} data-download={downloadPath}>
+    <input type="hidden" name="access_key" value={web3Key} />
+    <input type="hidden" name="subject" value={`Novo lead: ${materialSlug}`} />
+    <input type="hidden" name="material" value={materialSlug} />
+    <!-- honeypot -->
+    <input type="checkbox" name="botcheck" style="display:none" />
 
-<script>
-  const form = document.getElementById('lead-form') as HTMLFormElement;
-  const feedback = document.getElementById('form-feedback')!;
+    <input type="text" name="name" placeholder="Seu nome" required />
+    <input type="email" name="email" placeholder="Seu melhor e-mail" required />
+    <button type="submit">{ctaLabel}</button>
+    <p id={`form-feedback-${materialSlug}`} aria-live="polite"></p>
+  </form>
+
+  <div id={`download-reveal-${materialSlug}`} style="display:none">
+    <p>✅ Pronto! Clique no botão abaixo para baixar o material.</p>
+    <a id={`download-link-${materialSlug}`} class="btn" href={downloadPath} download>
+      Baixar agora
+    </a>
+  </div>
+</div>
+
+<script define:vars={{ materialSlug }}>
+  const form = document.getElementById(`lead-form-${materialSlug}`);
+  const feedback = document.getElementById(`form-feedback-${materialSlug}`);
+  const reveal = document.getElementById(`download-reveal-${materialSlug}`);
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-    const formData = new FormData(form);
-    const payload = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      materialSlug: form.dataset.slug,
-    };
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    feedback.textContent = 'Enviando…';
 
-    submitBtn.disabled = true;
-    feedback.textContent = 'Enviando link para o seu e-mail...';
+    const payload = Object.fromEntries(new FormData(form));
 
     try {
-      const res = await fetch('/api/lead', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       });
-
       const data = await res.json();
 
-      if (res.ok && data.ok) {
-        feedback.textContent = data.message;
-        form.reset();
+      if (res.ok && data.success) {
+        form.style.display = 'none';
+        reveal.style.display = 'block';
       } else {
-        feedback.textContent = data.error || 'Erro ao enviar. Tente novamente.';
+        feedback.textContent = data.message || 'Erro ao enviar. Tente novamente.';
+        btn.disabled = false;
       }
     } catch {
       feedback.textContent = 'Falha de conexão. Tente novamente.';
-    } finally {
-      submitBtn.disabled = false;
+      btn.disabled = false;
     }
   });
 </script>

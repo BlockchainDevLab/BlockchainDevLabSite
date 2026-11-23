@@ -1,0 +1,41 @@
+{
+  "$ref": "#/definitions/cursos",
+  "definitions": {
+    "cursos": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "checkoutUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "subtitle",
+        "price",
+        "checkoutUrl",
+        "highlights"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,14 @@
+name: blockchaindevlab-site
+static_sites:
+  - name: site
+    github:
+      repo: BlockchainDevLab/BlockchainDevLabSite
+      branch: main
+      deploy_on_push: true
+    build_command: npm ci && npm run build
+    output_dir: dist
+    envs:
+      - key: WEB3FORMS_KEY
+        scope: BUILD_TIME
+        # Set the value in the DO dashboard — do not commit it here.
+        # Sign up at https://web3forms.com, copy your Access Key, and paste it there.
