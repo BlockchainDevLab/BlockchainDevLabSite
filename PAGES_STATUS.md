@@ -4,7 +4,7 @@
 
 ---
 
-## ✅ PÁGINAS IMPLEMENTADAS (30 páginas)
+## ✅ PÁGINAS IMPLEMENTADAS (34 páginas)
 
 ### 00. Páginas Institucionais
 
@@ -46,12 +46,16 @@
 
 ---
 
-### 02. Consultoria
+### 02. Laboratório & Consultoria
 
 | Página | URL | Status | Notas |
 |---|---|---|---|
-| **Landing** | `/consultoria/` | ⚠️ Usar `/services/` | Renomear rota |
-| **Case Study** | `/consultoria/cases/[slug]/` | ⚠️ Usar `/work/[slug]/` | Filtrar `disciplines: [digital]` |
+| **Landing** | `/laboratorio-consultoria/` | ✅ Implementada | 2-card design (Lab + Consultoria) |
+| **Consultoria — Landing** | `/laboratorio-consultoria/consultoria/` | ✅ Implementada | Briefing + cases + processo |
+| **Briefing Form** | `/laboratorio-consultoria/consultoria/briefing/` | ✅ Implementada | Web3Forms |
+| **Cases** | `/laboratorio-consultoria/consultoria/cases/` | ✅ Implementada | Portfolio de projetos |
+| **Processo** | `/laboratorio-consultoria/consultoria/processo/` | ✅ Implementada | Metodologia |
+| **Legacy Consultoria** | `/consultoria/` | ✅ Mantida | Compatibilidade (4 páginas antigas) |
 
 ---
 
@@ -86,8 +90,12 @@
 
 | Página | URL | Status | Notas |
 |---|---|---|---|
-| **Landing** | `/ecossistema/` | ❌ Pendente | Criar página |
-| **Evento** | `/ecossistema/eventos/[slug]/` | ⚠️ Usar `/work/[slug]/` | `disciplines: [ecosystem]` |
+| **Landing** | `/ecossistema-web3/` | ✅ Implementada | Community-focused com Lucenta components |
+| **Networking** | `/ecossistema-web3/networking/` | ❌ Pendente | Criar página |
+| **Eventos** | `/ecossistema-web3/eventos/` | ❌ Pendente | Criar página |
+| **Grupos de Estudo** | `/ecossistema-web3/grupos-estudo/` | ❌ Pendente | Criar página |
+| **Oportunidades** | `/ecossistema-web3/oportunidades/` | ❌ Pendente | Job board |
+| **Parceiros** | `/ecossistema-web3/parceiros/` | ❌ Pendente | Empresas e protocolos |
 
 ---
 
@@ -124,8 +132,8 @@
 
 | Status | Quantidade | % |
 |---|---|---|
-| ✅ Implementadas | 30 | 60% |
-| ⚠️ Redirect/Renomear | 15 | 30% |
+| ✅ Implementadas | 34 | 68% |
+| ⚠️ Redirect/Renomear | 11 | 22% |
 | ❌ Pendentes | 5 | 10% |
 | **TOTAL** | **50** | **100%** |
 
@@ -306,5 +314,5 @@ npm run dev
 
 ---
 
-**Status:** 🟡 60% completo — Pronto para fase de conteúdo  
-**Próximo marco:** Implementar 5 landing pages faltantes (Semana 1)
+**Status:** 🟢 68% completo — Pronto para fase de conteúdo  
+**Próximo marco:** Implementar 5 subpáginas do Ecossistema Web3 (Semana 1)

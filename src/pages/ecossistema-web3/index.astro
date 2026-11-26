@@ -1,262 +1,272 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Button from "@/components/ui/Button.astro";
+import SectionHead from "@/components/ui/SectionHead.astro";
+import Icon from "@/components/ui/Icon.astro";
+import Steps from "@/components/ui/Steps.astro";
 ---
 
 <BaseLayout
   title="Ecossistema Web3 | Blockchain Dev Lab"
   description="Conecte-se com desenvolvedores, empresas e especialistas do universo Web3. Networking, eventos, grupos de estudo e oportunidades."
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Hero Section -->
-    <section class="py-16 md:py-24">
-      <div class="max-w-4xl mx-auto">
-        <div class="border-2 border-gray-800 rounded-lg p-12 md:p-16 bg-gradient-to-br from-blue-500/5 to-purple-500/5">
-          <h1 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-            Você não precisa caminhar sozinho.
+  <!-- Hero Section -->
+  <section class="section pb-0">
+    <div class="shell">
+      <div class="section__inner">
+        <div class="max-w-4xl">
+          <h1 class="h1 mb-8">
+            Você não precisa<br />caminhar sozinho.
           </h1>
           
-          <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
+          <p class="text-pretty text-xl leading-relaxed text-muted mb-12 max-w-2xl">
             Conecte-se com desenvolvedores, empresas e especialistas do universo Web3 
             em um ecossistema vivo e colaborativo.
           </p>
 
-          <div class="space-y-4 mb-12 text-lg">
-            <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-              <span>Networking e eventos</span>
+          <div class="space-y-4 mb-12">
+            <div class="flex items-start gap-4">
+              <Icon name="arrow-right" class="mt-1 size-5 shrink-0" />
+              <span class="text-lg">Networking e eventos</span>
             </div>
-            <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-              <span>Grupos de estudo</span>
+            <div class="flex items-start gap-4">
+              <Icon name="arrow-right" class="mt-1 size-5 shrink-0" />
+              <span class="text-lg">Grupos de estudo</span>
             </div>
-            <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-              <span>Oportunidades de trabalho</span>
+            <div class="flex items-start gap-4">
+              <Icon name="arrow-right" class="mt-1 size-5 shrink-0" />
+              <span class="text-lg">Oportunidades de trabalho</span>
             </div>
-            <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-              <span>Parcerias estratégicas</span>
+            <div class="flex items-start gap-4">
+              <Icon name="arrow-right" class="mt-1 size-5 shrink-0" />
+              <span class="text-lg">Parcerias estratégicas</span>
             </div>
           </div>
 
-          <a
-            href="/ecossistema-web3/networking/"
-            class="inline-block w-full md:w-auto px-8 py-4 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors text-center font-medium text-lg text-white"
-          >
-            ENTRAR NO ECOSSISTEMA
-          </a>
+          <Button href="/ecossistema-web3/networking/" size="lg">
+            Entrar no Ecossistema
+          </Button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Stats Section -->
-    <section class="py-16 border-t border-gray-800">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-3xl md:text-4xl font-bold mb-2">5.000+</div>
-          <div class="text-sm text-gray-400">Membros ativos</div>
+  <!-- Stats Section -->
+  <section class="section">
+    <div class="shell">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div class="text-center">
+          <div class="h2 mb-2">5.000+</div>
+          <div class="text-sm text-muted">Membros ativos</div>
         </div>
-        <div>
-          <div class="text-3xl md:text-4xl font-bold mb-2">200+</div>
-          <div class="text-sm text-gray-400">Eventos realizados</div>
+        <div class="text-center">
+          <div class="h2 mb-2">200+</div>
+          <div class="text-sm text-muted">Eventos realizados</div>
         </div>
-        <div>
-          <div class="text-3xl md:text-4xl font-bold mb-2">50+</div>
-          <div class="text-sm text-gray-400">Empresas parceiras</div>
+        <div class="text-center">
+          <div class="h2 mb-2">50+</div>
+          <div class="text-sm text-muted">Empresas parceiras</div>
         </div>
-        <div>
-          <div class="text-3xl md:text-4xl font-bold mb-2">300+</div>
-          <div class="text-sm text-gray-400">Vagas publicadas</div>
+        <div class="text-center">
+          <div class="h2 mb-2">300+</div>
+          <div class="text-sm text-muted">Vagas publicadas</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features Grid -->
-    <section class="py-16 border-t border-gray-800">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-        O que você encontra aqui
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          {
-            href: '/ecossistema-web3/networking/',
-            icon: '🤝',
-            title: 'Networking',
-            description: 'Conecte-se com desenvolvedores, founders e investidores do mercado Web3 brasileiro e internacional.',
-            color: 'border-blue-500',
-          },
-          {
-            href: '/ecossistema-web3/eventos/',
-            icon: '📅',
-            title: 'Eventos',
-            description: 'Meetups mensais, workshops práticos, hackathons e conferências sobre blockchain e Web3.',
-            color: 'border-purple-500',
-          },
-          {
-            href: '/ecossistema-web3/grupos-estudo/',
-            icon: '📚',
-            title: 'Grupos de Estudo',
-            description: 'Estude em grupo, compartilhe conhecimento e resolva desafios técnicos colaborativamente.',
-            color: 'border-green-500',
-          },
-          {
-            href: '/ecossistema-web3/oportunidades/',
-            icon: '💼',
-            title: 'Oportunidades',
-            description: 'Job board exclusivo com vagas em startups, DAOs e empresas do ecossistema Web3.',
-            color: 'border-orange-500',
-          },
-          {
-            href: '/ecossistema-web3/parceiros/',
-            icon: '🏢',
-            title: 'Parceiros',
-            description: 'Empresas, protocolos e organizações que apoiam e colaboram com nosso ecossistema.',
-            color: 'border-red-500',
-          },
-        ].map((feature) => (
-          <a
-            href={feature.href}
-            class={`block border-2 border-gray-800 hover:${feature.color} transition-all rounded-lg p-8 group`}
-          >
-            <div class="text-5xl mb-4">{feature.icon}</div>
-            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-500 transition-colors">
-              {feature.title}
-            </h3>
-            <p class="text-gray-400">
-              {feature.description}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
+  <!-- Features Grid -->
+  <section class="section">
+    <div class="shell">
+      <SectionHead title="O que você encontra aqui" />
+      
+      <div class="mt-[clamp(2.5rem,5vw,4.5rem)] grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <a href="/ecossistema-web3/networking/" class="group card">
+          <div class="text-5xl mb-6">🤝</div>
+          <h3 class="h4 mb-3 group-hover:text-primary transition-colors">Networking</h3>
+          <p class="text-muted text-pretty">
+            Conecte-se com desenvolvedores, founders e investidores do mercado Web3 
+            brasileiro e internacional.
+          </p>
+        </a>
 
-    <!-- Benefits -->
-    <section class="py-16 border-t border-gray-800">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-        Por que fazer parte?
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {[
-          {
-            title: 'Aprenda com os melhores',
-            description: 'Acesso a desenvolvedores seniors, founders e experts do mercado Web3.',
-          },
-          {
-            title: 'Encontre oportunidades',
-            description: 'Vagas exclusivas em startups, empresas e DAOs do ecossistema.',
-          },
-          {
-            title: 'Construa seu network',
-            description: 'Conexões reais com pessoas construindo o futuro descentralizado.',
-          },
-          {
-            title: 'Participe de eventos',
-            description: 'Meetups mensais, workshops e hackathons com prêmios em crypto.',
-          },
-          {
-            title: 'Contribua para open source',
-            description: 'Projetos comunitários para desenvolver habilidades e portfolio.',
-          },
-          {
-            title: 'Acesso a ferramentas',
-            description: 'Descontos em plataformas, créditos em RPCs e infraestrutura compartilhada.',
-          },
-        ].map((benefit) => (
-          <div class="border border-gray-800 rounded-lg p-6">
-            <h3 class="text-lg font-bold mb-2">{benefit.title}</h3>
-            <p class="text-sm text-gray-400">{benefit.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+        <a href="/ecossistema-web3/eventos/" class="group card">
+          <div class="text-5xl mb-6">📅</div>
+          <h3 class="h4 mb-3 group-hover:text-primary transition-colors">Eventos</h3>
+          <p class="text-muted text-pretty">
+            Meetups mensais, workshops práticos, hackathons e conferências sobre 
+            blockchain e Web3.
+          </p>
+        </a>
 
-    <!-- Upcoming Events Preview -->
-    <section class="py-16 border-t border-gray-800">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="text-3xl font-bold">Próximos eventos</h2>
-        <a href="/ecossistema-web3/eventos/" class="text-blue-500 hover:underline">
-          Ver todos →
+        <a href="/ecossistema-web3/grupos-estudo/" class="group card">
+          <div class="text-5xl mb-6">📚</div>
+          <h3 class="h4 mb-3 group-hover:text-primary transition-colors">Grupos de Estudo</h3>
+          <p class="text-muted text-pretty">
+            Estude em grupo, compartilhe conhecimento e resolva desafios técnicos 
+            colaborativamente.
+          </p>
+        </a>
+
+        <a href="/ecossistema-web3/oportunidades/" class="group card">
+          <div class="text-5xl mb-6">💼</div>
+          <h3 class="h4 mb-3 group-hover:text-primary transition-colors">Oportunidades</h3>
+          <p class="text-muted text-pretty">
+            Job board exclusivo com vagas em startups, DAOs e empresas do ecossistema Web3.
+          </p>
+        </a>
+
+        <a href="/ecossistema-web3/parceiros/" class="group card">
+          <div class="text-5xl mb-6">🏢</div>
+          <h3 class="h4 mb-3 group-hover:text-primary transition-colors">Parceiros</h3>
+          <p class="text-muted text-pretty">
+            Empresas, protocolos e organizações que apoiam e colaboram com nosso ecossistema.
+          </p>
         </a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          {
-            date: '15 Jan',
-            title: 'Web3 Meetup SP',
-            type: 'Presencial',
-            attendees: 120,
-          },
-          {
-            date: '22 Jan',
-            title: 'Workshop: DeFi Deep Dive',
-            type: 'Online',
-            attendees: 85,
-          },
-          {
-            date: '05 Fev',
-            title: 'Hackathon: NFTs & Gaming',
-            type: 'Híbrido',
-            attendees: 200,
-          },
-        ].map((event) => (
-          <div class="border border-gray-800 rounded-lg p-6">
-            <div class="flex items-start gap-4 mb-4">
-              <div class="text-center">
-                <div class="text-2xl font-bold">{event.date.split(' ')[0]}</div>
-                <div class="text-xs text-gray-400">{event.date.split(' ')[1]}</div>
-              </div>
-              <div class="flex-1">
-                <h3 class="font-bold mb-1">{event.title}</h3>
-                <div class="flex items-center gap-2 text-sm text-gray-400">
-                  <span class="px-2 py-0.5 rounded bg-gray-800">{event.type}</span>
-                  <span>{event.attendees} participantes</span>
-                </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="shell">
+      <SectionHead title="Por que fazer parte?" />
+      
+      <div class="mt-[clamp(2.5rem,5vw,4.5rem)] grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+        <div class="card">
+          <h3 class="h5 mb-3">Aprenda com os melhores</h3>
+          <p class="text-sm text-muted">
+            Acesso a desenvolvedores seniors, founders e experts do mercado Web3.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="h5 mb-3">Encontre oportunidades</h3>
+          <p class="text-sm text-muted">
+            Vagas exclusivas em startups, empresas e DAOs do ecossistema.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="h5 mb-3">Construa seu network</h3>
+          <p class="text-sm text-muted">
+            Conexões reais com pessoas construindo o futuro descentralizado.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="h5 mb-3">Participe de eventos</h3>
+          <p class="text-sm text-muted">
+            Meetups mensais, workshops e hackathons com prêmios em crypto.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="h5 mb-3">Contribua para open source</h3>
+          <p class="text-sm text-muted">
+            Projetos comunitários para desenvolver habilidades e portfolio.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="h5 mb-3">Acesso a ferramentas</h3>
+          <p class="text-sm text-muted">
+            Descontos em plataformas, créditos em RPCs e infraestrutura compartilhada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="section">
+    <div class="shell">
+      <SectionHead 
+        title="Próximos eventos" 
+        link={{ href: "/ecossistema-web3/eventos/", label: "Ver todos" }}
+      />
+      
+      <div class="mt-[clamp(2.5rem,5vw,4.5rem)] grid gap-6 md:grid-cols-3">
+        <div class="card">
+          <div class="flex gap-4 mb-4">
+            <div class="text-center shrink-0">
+              <div class="text-2xl font-bold">15</div>
+              <div class="text-xs text-muted">Jan</div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold mb-2">Web3 Meetup SP</h3>
+              <div class="flex gap-2 text-sm text-muted">
+                <span class="badge">Presencial</span>
+                <span>120 participantes</span>
               </div>
             </div>
-            <button class="w-full px-4 py-2 rounded-lg border border-gray-800 hover:border-blue-500 hover:text-blue-500 transition-colors font-medium text-sm">
-              Inscrever-se
-            </button>
           </div>
-        ))}
-      </div>
-    </section>
+          <Button variant="secondary" size="sm" class="w-full">
+            Inscrever-se
+          </Button>
+        </div>
 
-    <!-- Final CTA -->
-    <section class="py-16 border-t border-gray-800 mb-16">
-      <div class="border-2 border-gray-800 rounded-lg p-8 md:p-12 text-center bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <div class="card">
+          <div class="flex gap-4 mb-4">
+            <div class="text-center shrink-0">
+              <div class="text-2xl font-bold">22</div>
+              <div class="text-xs text-muted">Jan</div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold mb-2">Workshop: DeFi Deep Dive</h3>
+              <div class="flex gap-2 text-sm text-muted">
+                <span class="badge">Online</span>
+                <span>85 participantes</span>
+              </div>
+            </div>
+          </div>
+          <Button variant="secondary" size="sm" class="w-full">
+            Inscrever-se
+          </Button>
+        </div>
+
+        <div class="card">
+          <div class="flex gap-4 mb-4">
+            <div class="text-center shrink-0">
+              <div class="text-2xl font-bold">05</div>
+              <div class="text-xs text-muted">Fev</div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold mb-2">Hackathon: NFTs & Gaming</h3>
+              <div class="flex gap-2 text-sm text-muted">
+                <span class="badge">Híbrido</span>
+                <span>200 participantes</span>
+              </div>
+            </div>
+          </div>
+          <Button variant="secondary" size="sm" class="w-full">
+            Inscrever-se
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section">
+    <div class="shell">
+      <div class="card-accent text-center">
+        <h2 class="h2 mb-6">
           Faça parte do ecossistema
         </h2>
-        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p class="text-lg text-muted mb-8 max-w-2xl mx-auto text-pretty">
           Junte-se a milhares de desenvolvedores, empresas e entusiastas
           construindo o futuro descentralizado.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/ecossistema-web3/networking/"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors font-medium text-lg text-white"
-          >
+          <Button href="/ecossistema-web3/networking/" size="lg">
             Entrar na Comunidade
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a
-            href="/ecossistema-web3/eventos/"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white transition-all font-medium text-lg"
-          >
+          </Button>
+          <Button href="/ecossistema-web3/eventos/" variant="secondary" size="lg">
             Ver Próximos Eventos
-          </a>
+          </Button>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </BaseLayout>
