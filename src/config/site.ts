@@ -69,18 +69,18 @@ export const navigation: NavLink[] = [
   },
   { 
     label: "Laboratório & Consultoria", 
-    href: "/solucoes-projetos/",
+    href: "/laboratorio-consultoria/",
     submenu: [
-      { label: "Arquitetura Blockchain", href: "/solucoes-projetos/consultoria/arquitetura/" },
-      { label: "Smart Contracts", href: "/solucoes-projetos/consultoria/smart-contracts/" },
-      { label: "Auditoria Técnica", href: "/solucoes-projetos/consultoria/auditoria/" },
-      { label: "Cases de Sucesso", href: "/solucoes-projetos/consultoria/cases/" },
-      { label: "Solicitar Orçamento", href: "/solucoes-projetos/consultoria/orcamento/" },
+      { label: "Arquitetura Blockchain", href: "/laboratorio-consultoria/consultoria/arquitetura/" },
+      { label: "Smart Contracts", href: "/laboratorio-consultoria/consultoria/smart-contracts/" },
+      { label: "Auditoria Técnica", href: "/laboratorio-consultoria/consultoria/auditoria/" },
+      { label: "Cases de Sucesso", href: "/laboratorio-consultoria/consultoria/cases/" },
+      { label: "Solicitar Orçamento", href: "/laboratorio-consultoria/consultoria/orcamento/" },
       { label: "—", href: "#" },
-      { label: "Projetos para Iniciantes", href: "/solucoes-projetos/laboratorios/iniciantes/" },
-      { label: "Projetos Avançados", href: "/solucoes-projetos/laboratorios/avancados/" },
-      { label: "Galeria de Projetos", href: "/solucoes-projetos/laboratorios/galeria/" },
-      { label: "Open Source", href: "/solucoes-projetos/laboratorios/open-source/" },
+      { label: "Projetos para Iniciantes", href: "/laboratorio-consultoria/laboratorios/iniciantes/" },
+      { label: "Projetos Avançados", href: "/laboratorio-consultoria/laboratorios/avancados/" },
+      { label: "Galeria de Projetos", href: "/laboratorio-consultoria/laboratorios/galeria/" },
+      { label: "Open Source", href: "/laboratorio-consultoria/laboratorios/open-source/" },
     ]
   },
   { 
