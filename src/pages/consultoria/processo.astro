@@ -1,0 +1,276 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const steps = [
+  {
+    number: "01",
+    title: "Discovery & Briefing",
+    duration: "1-2 dias",
+    description: "Preencha nosso formulário de briefing detalhado. Agendamos uma call de 60min para entender escopo, stack técnico, prazos e orçamento. NDA assinado antes de qualquer compartilhamento de código.",
+    deliverables: [
+      "NDA assinado",
+      "Discovery call (60min)",
+      "Análise preliminar de código",
+      "Proposta técnica e comercial",
+    ],
+  },
+  {
+    number: "02",
+    title: "Proposta & Kickoff",
+    duration: "2-3 dias",
+    description: "Enviamos proposta detalhada com escopo, cronograma, equipe alocada e investimento. Após aprovação, agendamos kickoff meeting para alinhamento técnico e setup de comunicação (Slack/Discord).",
+    deliverables: [
+      "Proposta comercial",
+      "Statement of Work (SOW)",
+      "Cronograma detalhado",
+      "Kickoff meeting",
+      "Setup de canais de comunicação",
+    ],
+  },
+  {
+    number: "03",
+    title: "Execução",
+    duration: "1-8 semanas",
+    description: "Execução do projeto conforme SOW. Updates semanais via Slack, revisões intermediárias a cada sprint. Acesso ao nosso board (Linear/Notion) para acompanhar progresso em tempo real.",
+    deliverables: [
+      "Updates semanais (Slack)",
+      "Revisões de sprint (quinzenais)",
+      "Acesso ao board de progresso",
+      "Relatórios preliminares",
+      "Code reviews",
+    ],
+  },
+  {
+    number: "04",
+    title: "Entrega & Review",
+    duration: "1-2 semanas",
+    description: "Entrega do relatório final (auditoria), documentação técnica (arquitetura) ou código refatorado (otimização). Apresentação dos resultados em call de 90min com Q&A. Revisão de feedback e ajustes finais.",
+    deliverables: [
+      "Relatório final (PDF + Markdown)",
+      "Código-fonte (se aplicável)",
+      "Documentação técnica completa",
+      "Apresentação de resultados (90min)",
+      "Revisão de feedback",
+    ],
+  },
+  {
+    number: "05",
+    title: "Suporte & Handoff",
+    duration: "30 dias grátis",
+    description: "30 dias de suporte incluído: dúvidas sobre o relatório, ajuda na implementação de correções, revisão de fixes. Suporte estendido (3-12 meses) disponível mediante contrato adicional.",
+    deliverables: [
+      "Suporte via Slack (30 dias)",
+      "Revisão de correções implementadas",
+      "Resposta a dúvidas técnicas",
+      "Proposta de suporte estendido (opcional)",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: "Quanto tempo leva uma auditoria?",
+    a: "Projetos pequenos (1-3 contratos): 1-2 semanas. Médios (protocolo completo): 3-4 semanas. Grandes (multi-chain): 6-8 semanas. Sempre incluímos buffer para deep dives em áreas críticas.",
+  },
+  {
+    q: "Vocês trabalham com NDA?",
+    a: "Sim, assinamos NDA antes de qualquer discovery. Todo código é tratado como confidencial e não é compartilhado com terceiros. Podemos fazer casos anônimos ('DeFi Protocol X') se preferir.",
+  },
+  {
+    q: "Qual o investimento mínimo?",
+    a: "Projetos a partir de R$ 8.000 (otimização de gas). Auditorias completas começam em R$ 15.000. Arquitetura de protocolos a partir de R$ 20.000. Aceita parcelamento em até 3x.",
+  },
+  {
+    q: "Oferecem garantia?",
+    a: "Se identificarmos uma vulnerabilidade crítica que não foi detectada em nossa auditoria e resultar em exploit nos primeiros 90 dias pós-deploy, refazemos a auditoria gratuitamente. Não nos responsabilizamos por perdas financeiras (ver cláusula de limitação nos Termos de Uso).",
+  },
+  {
+    q: "Trabalham apenas com projetos em Solidity/EVM?",
+    a: "Foco principal: Solidity/EVM (Ethereum, Polygon, Arbitrum, Optimism, Base). Também atendemos: Rust/Solana, Move/Aptos, Cairo/Starknet. Para outras chains, consulte disponibilidade.",
+  },
+  {
+    q: "Como funcionam os pagamentos?",
+    a: "50% upfront (assinatura do contrato), 50% na entrega final. Aceitamos: PIX, transferência bancária, cartão de crédito (até 3x), criptomoedas (USDC, DAI) para valores acima de $5000.",
+  },
+];
+---
+
+<BaseLayout
+  title="Processo de Trabalho — Consultoria Blockchain Dev Lab"
+  description="Conheça nossa metodologia: do briefing inicial ao suporte pós-entrega. 5 etapas transparentes com cronograma detalhado e entregas por sprint."
+>
+  <!-- Hero -->
+  <section class="hero" style="padding: 6rem 0 4rem; border-bottom: 1px solid #e5e5e5;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="max-width: 800px;">
+        <div style="font-family: 'SF Mono', monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #FF6B00; margin-bottom: 1rem;">
+          Processo de Trabalho
+        </div>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem;">
+          Do briefing ao deploy: transparência em cada etapa
+        </h1>
+        <p style="font-size: 1.25rem; color: #666; max-width: 600px;">
+          Metodologia testada em 30+ projetos. Sem surpresas, sem atrasos, sem custos ocultos. Você sabe exatamente o que esperar em cada fase.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Processo (5 etapas) -->
+  <section style="padding: 6rem 0;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 1.5rem;">
+      {steps.map((step, index) => (
+        <div style={`padding: 3rem 0; ${index < steps.length - 1 ? 'border-bottom: 1px solid #e5e5e5;' : ''}`}>
+          <div style="display: grid; grid-template-columns: 100px 1fr; gap: 3rem; align-items: start;">
+            <!-- Número -->
+            <div style="text-align: right;">
+              <div style="font-size: 4rem; font-weight: 800; color: #FF6B00; line-height: 1;">
+                {step.number}
+              </div>
+              <div style="font-family: 'SF Mono', monospace; font-size: 0.75rem; color: #999; margin-top: 0.5rem; text-transform: uppercase;">
+                {step.duration}
+              </div>
+            </div>
+
+            <!-- Conteúdo -->
+            <div>
+              <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem;">
+                {step.title}
+              </h3>
+              <p style="font-size: 1.125rem; color: #666; line-height: 1.8; margin-bottom: 2rem;">
+                {step.description}
+              </p>
+
+              <div style="background: #f5f5f5; padding: 2rem; border-radius: 8px;">
+                <strong style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #999; margin-bottom: 1rem; display: block;">
+                  Entregas desta fase:
+                </strong>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                  {step.deliverables.map((item) => (
+                    <li style="padding: 0.5rem 0; display: flex; gap: 0.75rem;">
+                      <span style="color: #FF6B00;">✓</span>
+                      <span style="color: #666;">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Timeline Visual -->
+  <section style="padding: 6rem 0; background: #f5f5f5;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; text-align: center;">
+        Timeline Típico (Auditoria de Protocolo Médio)
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #FF6B00; margin-bottom: 0.5rem;">2 dias</div>
+          <div style="font-size: 0.875rem; color: #666;">Discovery</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #FF6B00; margin-bottom: 0.5rem;">3 dias</div>
+          <div style="font-size: 0.875rem; color: #666;">Proposta</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #FF6B00; margin-bottom: 0.5rem;">3 sem</div>
+          <div style="font-size: 0.875rem; color: #666;">Execução</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #FF6B00; margin-bottom: 0.5rem;">1 sem</div>
+          <div style="font-size: 0.875rem; color: #666;">Entrega</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 8px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #FF6B00; margin-bottom: 0.5rem;">30 dias</div>
+          <div style="font-size: 0.875rem; color: #666;">Suporte</div>
+        </div>
+      </div>
+
+      <p style="text-align: center; color: #999; margin-top: 2rem; font-size: 0.875rem;">
+        Prazo total: ~5 semanas (do briefing ao relatório final)
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding: 6rem 0;">
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1.5rem;">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem;">
+        Perguntas Frequentes
+      </h2>
+
+      <div style="display: grid; gap: 1.5rem;">
+        {faqs.map((faq) => (
+          <details style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; cursor: pointer;">
+            <summary style="font-size: 1.125rem; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              {faq.q}
+              <span style="font-size: 1.5rem; color: #FF6B00;">›</span>
+            </summary>
+            <p style="margin-top: 1rem; color: #666; line-height: 1.7;">
+              {faq.a}
+            </p>
+          </details>
+        ))}
+      </div>
+
+      <div style="margin-top: 3rem; text-align: center;">
+        <a href="/faq/" style="text-decoration: underline; text-underline-offset: 4px; color: #000;">
+          Ver todas as perguntas →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: 6rem 0; background: #000; color: white; text-align: center;">
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1.5rem;">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem;">
+        Pronto para começar?
+      </h2>
+      <p style="font-size: 1.25rem; color: #ccc; margin-bottom: 3rem;">
+        Preencha nosso briefing e receba uma proposta personalizada em até 48 horas
+      </p>
+      <a
+        href="/consultoria/briefing/"
+        style="display: inline-block; background: #FF6B00; color: white; padding: 1.25rem 2.5rem; font-weight: 700; text-decoration: none; border-radius: 6px; font-size: 1.125rem; transition: transform 0.2s;"
+        class="cta-btn"
+      >
+        Preencher Briefing
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details[open] summary span {
+    transform: rotate(90deg);
+  }
+  
+  details summary span {
+    transition: transform 0.2s;
+  }
+
+  .cta-btn:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .container > div[style*="grid-template-columns: 100px"] {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+
+    .container > div[style*="grid-template-columns: repeat(5"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+</style>
