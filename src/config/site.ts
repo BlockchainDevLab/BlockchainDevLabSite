@@ -95,12 +95,13 @@ export const navigation: NavLink[] = [
   },
   { 
     label: "Ecossistema Web3", 
-    href: "/ecossistema/",
+    href: "/ecossistema-web3/",
     submenu: [
-      { label: "Comunidade", href: "/ecossistema/comunidade/" },
-      { label: "Eventos & Workshops", href: "/ecossistema/eventos/" },
-      { label: "Parceiros", href: "/ecossistema/parceiros/" },
-      { label: "Oportunidades", href: "/ecossistema/oportunidades/" },
+      { label: "Networking", href: "/ecossistema-web3/networking/" },
+      { label: "Eventos", href: "/ecossistema-web3/eventos/" },
+      { label: "Grupos de Estudo", href: "/ecossistema-web3/grupos-estudo/" },
+      { label: "Oportunidades", href: "/ecossistema-web3/oportunidades/" },
+      { label: "Parceiros", href: "/ecossistema-web3/parceiros/" },
     ]
   },
   { 
