@@ -1,24 +1,24 @@
-# 🛠️ Soluções & Projetos — Estrutura Completa
+# 🛠️ Laboratório & Consultoria — Estrutura Completa
 
-> Nova seção `/solucoes-projetos/` agregando Consultoria e Laboratórios
+> Seção `/laboratorio-consultoria/` agregando Consultoria B2B e Laboratórios Práticos
 
 ---
 
 ## 📋 Estrutura de URLs
 
 ```
-/solucoes-projetos/
+/laboratorio-consultoria/
 ├── Consultoria
-│   ├── /solucoes-projetos/consultoria/arquitetura/
-│   ├── /solucoes-projetos/consultoria/smart-contracts/
-│   ├── /solucoes-projetos/consultoria/auditoria/
-│   ├── /solucoes-projetos/consultoria/cases/
-│   └── /solucoes-projetos/consultoria/orcamento/
+│   ├── /laboratorio-consultoria/consultoria/arquitetura/
+│   ├── /laboratorio-consultoria/consultoria/smart-contracts/
+│   ├── /laboratorio-consultoria/consultoria/auditoria/
+│   ├── /laboratorio-consultoria/consultoria/cases/
+│   └── /laboratorio-consultoria/consultoria/orcamento/
 └── Laboratórios
-    ├── /solucoes-projetos/laboratorios/iniciantes/
-    ├── /solucoes-projetos/laboratorios/avancados/
-    ├── /solucoes-projetos/laboratorios/galeria/
-    └── /solucoes-projetos/laboratorios/open-source/
+    ├── /laboratorio-consultoria/laboratorios/iniciantes/
+    ├── /laboratorio-consultoria/laboratorios/avancados/
+    ├── /laboratorio-consultoria/laboratorios/galeria/
+    └── /laboratorio-consultoria/laboratorios/open-source/
 ```
 
 ---
@@ -30,20 +30,20 @@ No arquivo `src/config/site.ts`:
 ```typescript
 {
   label: "Laboratório & Consultoria",
-  href: "/solucoes-projetos/",
+  href: "/laboratorio-consultoria/",
   submenu: [
     // Consultoria
-    { label: "Arquitetura Blockchain", href: "/solucoes-projetos/consultoria/arquitetura/" },
-    { label: "Smart Contracts", href: "/solucoes-projetos/consultoria/smart-contracts/" },
-    { label: "Auditoria Técnica", href: "/solucoes-projetos/consultoria/auditoria/" },
-    { label: "Cases de Sucesso", href: "/solucoes-projetos/consultoria/cases/" },
-    { label: "Solicitar Orçamento", href: "/solucoes-projetos/consultoria/orcamento/" },
+    { label: "Arquitetura Blockchain", href: "/laboratorio-consultoria/consultoria/arquitetura/" },
+    { label: "Smart Contracts", href: "/laboratorio-consultoria/consultoria/smart-contracts/" },
+    { label: "Auditoria Técnica", href: "/laboratorio-consultoria/consultoria/auditoria/" },
+    { label: "Cases de Sucesso", href: "/laboratorio-consultoria/consultoria/cases/" },
+    { label: "Solicitar Orçamento", href: "/laboratorio-consultoria/consultoria/orcamento/" },
     { label: "—", href: "#" }, // Separador visual
     // Laboratórios
-    { label: "Projetos para Iniciantes", href: "/solucoes-projetos/laboratorios/iniciantes/" },
-    { label: "Projetos Avançados", href: "/solucoes-projetos/laboratorios/avancados/" },
-    { label: "Galeria de Projetos", href: "/solucoes-projetos/laboratorios/galeria/" },
-    { label: "Open Source", href: "/solucoes-projetos/laboratorios/open-source/" },
+    { label: "Projetos para Iniciantes", href: "/laboratorio-consultoria/laboratorios/iniciantes/" },
+    { label: "Projetos Avançados", href: "/laboratorio-consultoria/laboratorios/avancados/" },
+    { label: "Galeria de Projetos", href: "/laboratorio-consultoria/laboratorios/galeria/" },
+    { label: "Open Source", href: "/laboratorio-consultoria/laboratorios/open-source/" },
   ]
 }
 ```
@@ -53,7 +53,7 @@ No arquivo `src/config/site.ts`:
 ## 📄 Páginas Criadas
 
 ### Landing Principal
-- **`/solucoes-projetos/index.astro`**
+- **`/laboratorio-consultoria/index.astro`**
   - Hero com stats
   - Duas seções principais (Consultoria + Laboratórios)
   - Processo end-to-end
@@ -63,29 +63,29 @@ No arquivo `src/config/site.ts`:
 ### Consultoria (5 páginas)
 
 #### 1. Arquitetura Blockchain
-- `/solucoes-projetos/consultoria/arquitetura.astro`
+- `/laboratorio-consultoria/consultoria/arquitetura.astro`
 - O que entregamos: Análise, Design, Prototipagem, Documentação
 - Decisões arquiteturais: Blockchain choice, On/Off-chain, Padrões
 
 #### 2. Smart Contracts
-- `/solucoes-projetos/consultoria/smart-contracts.astro`
+- `/laboratorio-consultoria/consultoria/smart-contracts.astro`
 - Tipos: ERC-20, NFTs, DeFi, DAOs, GameFi, Identity
 - Processo: Especificação → Deploy → Auditoria
 
 #### 3. Auditoria Técnica
-- `/solucoes-projetos/consultoria/auditoria.astro`
+- `/laboratorio-consultoria/consultoria/auditoria.astro`
 - Análise manual + Ferramentas (Slither, Mythril)
 - Níveis de severidade (Critical, High, Medium, Low)
 - Entregáveis: Relatório, Recomendações, Re-audit
 
 #### 4. Cases de Sucesso
-- `/solucoes-projetos/consultoria/cases.astro`
+- `/laboratorio-consultoria/consultoria/cases.astro`
 - 6 cases reais: Tokenização, NFT Marketplace, DAO, Certificados, Supply Chain, Imóveis
 - Filtros por setor
 - Resultados mensuráveis
 
 #### 5. Solicitar Orçamento
-- `/solucoes-projetos/consultoria/orcamento.astro`
+- `/laboratorio-consultoria/consultoria/orcamento.astro`
 - Formulário completo: Dados, Serviço, Budget, Timing, Descrição
 - LGPD compliance
 - Anexos opcionais
@@ -93,25 +93,25 @@ No arquivo `src/config/site.ts`:
 ### Laboratórios (4 páginas)
 
 #### 1. Projetos para Iniciantes
-- `/solucoes-projetos/laboratorios/iniciantes.astro`
+- `/laboratorio-consultoria/laboratorios/iniciantes.astro`
 - 6 projetos: Hello Blockchain → Staking Contract
 - Níveis: Muito Fácil, Fácil, Médio
 - Tempo: 2h a 12h
 
 #### 2. Projetos Avançados
-- `/solucoes-projetos/laboratorios/avancados.astro`
+- `/laboratorio-consultoria/laboratorios/avancados.astro`
 - 6 projetos complexos: AMM, Lending, DAO Framework, NFT Marketplace Pro, Yield Aggregator, L2 Bridge
 - Níveis: Avançado, Expert
 - Tempo: 30h a 60h
 
 #### 3. Galeria de Projetos
-- `/solucoes-projetos/laboratorios/galeria.astro`
+- `/laboratorio-consultoria/laboratorios/galeria.astro`
 - Grid de projetos da comunidade
 - Filtros por categoria (DeFi, NFT, DAO, GameFi, Infra)
 - Links para código
 
 #### 4. Open Source
-- `/solucoes-projetos/laboratorios/open-source.astro`
+- `/laboratorio-consultoria/laboratorios/open-source.astro`
 - Benefícios: Aprender, Network, Portfolio
 - 4 projetos disponíveis: Core Framework, DeFi Toolkit, NFT Generator, Web3 UI Kit
 - Call to action para iniciar projeto próprio
@@ -141,7 +141,7 @@ No arquivo `src/config/site.ts`:
 ## 🔄 Fluxo do Usuário
 
 ### Para Empresas
-1. **Landing** `/solucoes-projetos/` → Ver overview
+1. **Landing** `/laboratorio-consultoria/` → Ver overview
 2. **Arquitetura** → Entender abordagem
 3. **Cases** → Ver trabalhos anteriores
 4. **Orçamento** → Solicitar proposta
@@ -202,27 +202,27 @@ No arquivo `src/config/site.ts`:
 - `src/config/site.ts` — Novo submenu com 10 itens
 
 ### Páginas Criadas (10 total)
-1. `src/pages/solucoes-projetos/index.astro`
-2. `src/pages/solucoes-projetos/consultoria/arquitetura.astro`
-3. `src/pages/solucoes-projetos/consultoria/smart-contracts.astro`
-4. `src/pages/solucoes-projetos/consultoria/auditoria.astro`
-5. `src/pages/solucoes-projetos/consultoria/cases.astro`
-6. `src/pages/solucoes-projetos/consultoria/orcamento.astro`
-7. `src/pages/solucoes-projetos/laboratorios/iniciantes.astro`
-8. `src/pages/solucoes-projetos/laboratorios/avancados.astro`
-9. `src/pages/solucoes-projetos/laboratorios/galeria.astro`
-10. `src/pages/solucoes-projetos/laboratorios/open-source.astro`
+1. `src/pages/laboratorio-consultoria/index.astro`
+2. `src/pages/laboratorio-consultoria/consultoria/arquitetura.astro`
+3. `src/pages/laboratorio-consultoria/consultoria/smart-contracts.astro`
+4. `src/pages/laboratorio-consultoria/consultoria/auditoria.astro`
+5. `src/pages/laboratorio-consultoria/consultoria/cases.astro`
+6. `src/pages/laboratorio-consultoria/consultoria/orcamento.astro`
+7. `src/pages/laboratorio-consultoria/laboratorios/iniciantes.astro`
+8. `src/pages/laboratorio-consultoria/laboratorios/avancados.astro`
+9. `src/pages/laboratorio-consultoria/laboratorios/galeria.astro`
+10. `src/pages/laboratorio-consultoria/laboratorios/open-source.astro`
 
 ### Documentação
-- `SOLUCOES_PROJETOS.md` — Este arquivo
+- `LABORATORIO_CONSULTORIA.md` — Este arquivo
 
 ---
 
 ## 💡 Decisões de Design
 
-1. **URL unificada** `/solucoes-projetos/` ao invés de `/laboratorio-consultoria/`
-   - Mais claro e profissional
-   - "Soluções" para empresas, "Projetos" para devs
+1. **URL unificada** `/laboratorio-consultoria/` agregando Consultoria + Laboratórios
+   - Claro e descritivo
+   - Mantém foco em "implementação prática"
 
 2. **Submenu com 10 itens** (5 consultoria + 5 labs)
    - Separador visual (`—`) entre as seções
