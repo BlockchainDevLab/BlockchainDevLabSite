@@ -1,0 +1,162 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteConfig } from "@/config/site";
+
+const faqs = [
+  {
+    category: "Cursos",
+    questions: [
+      {
+        q: "Preciso ter experiência prévia com blockchain?",
+        a: "Não para cursos iniciantes. Oferecemos trilhas desde o zero absoluto até níveis avançados. Para cursos intermediários e avançados, recomendamos conhecimento básico de Solidity.",
+      },
+      {
+        q: "Os cursos têm certificado?",
+        a: "Sim, todos os cursos emitem certificado de conclusão após aprovação nas avaliações práticas.",
+      },
+      {
+        q: "Qual a duração média de um curso?",
+        a: "Cursos iniciantes: 4-6 semanas. Intermediários: 8-10 semanas. Avançados: 12-16 semanas. Todos com ritmo flexível.",
+      },
+      {
+        q: "Posso parcelar o investimento?",
+        a: "Sim, aceitamos parcelamento em até 12x no cartão de crédito via Stripe/Hotmart.",
+      },
+    ],
+  },
+  {
+    category: "Mentoria",
+    questions: [
+      {
+        q: "Como funciona a mentoria individual?",
+        a: "São 4-12 sessões ao vivo de 1h cada, agendadas conforme sua disponibilidade. Entre as sessões, você tem revisão assíncrona de código via Slack.",
+      },
+      {
+        q: "Posso escolher meu mentor?",
+        a: "Sim, você pode escolher entre nossos mentores disponíveis baseado em especialidade e fit de agenda.",
+      },
+      {
+        q: "A mentoria cobre projetos pessoais?",
+        a: "Sim! Você pode trazer seus próprios projetos para revisão, arquitetura e discussão técnica.",
+      },
+    ],
+  },
+  {
+    category: "Consultoria",
+    questions: [
+      {
+        q: "Qual o prazo médio de uma auditoria?",
+        a: "Auditorias pequenas (1-3 contratos): 1-2 semanas. Médias (protocolo completo): 3-4 semanas. Grandes (multi-chain): 6-8 semanas.",
+      },
+      {
+        q: "Vocês fazem NDA?",
+        a: "Sim, assinamos NDA antes de qualquer discovery. Todo código é tratado como confidencial.",
+      },
+      {
+        q: "Oferecem suporte pós-auditoria?",
+        a: "Sim, incluímos 30 dias de suporte gratuito para dúvidas. Suporte estendido (3-12 meses) disponível mediante contrato.",
+      },
+    ],
+  },
+  {
+    category: "Pagamentos",
+    questions: [
+      {
+        q: "Quais formas de pagamento aceitam?",
+        a: "Cartão de crédito (Stripe), PIX, transferência bancária, e criptomoedas (USDC, DAI) para valores acima de $1000.",
+      },
+      {
+        q: "Há garantia de devolução?",
+        a: "Sim, 7 dias de garantia incondicional para cursos. Consultoria: 50% de reembolso se cancelar antes da entrega do relatório preliminar.",
+      },
+      {
+        q: "Emitem nota fiscal?",
+        a: "Sim, emitimos NF-e para pessoas jurídicas e recibos para pessoas físicas.",
+      },
+    ],
+  },
+  {
+    category: "Acesso e Suporte",
+    questions: [
+      {
+        q: "Por quanto tempo tenho acesso ao conteúdo?",
+        a: "Acesso vitalício aos cursos gravados. Materiais baixáveis (PDFs, códigos) são seus para sempre.",
+      },
+      {
+        q: "Há comunidade de alunos?",
+        a: "Sim, Discord privado com 1000+ membros, canais por curso, job board exclusivo e eventos mensais.",
+      },
+      {
+        q: "Como funciona o suporte técnico?",
+        a: "Suporte via Discord (resposta em até 24h úteis) e sessões ao vivo quinzenais de Q&A.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="FAQ — Perguntas Frequentes" description="Central de dúvidas sobre cursos, mentoria, consultoria e pagamentos do Blockchain Dev Lab.">
+  <section class="container" style="max-width: 900px; margin: 0 auto; padding: 6rem 1.5rem;">
+    <header style="margin-bottom: 4rem; text-align: center;">
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1rem;">
+        Perguntas Frequentes
+      </h1>
+      <p style="font-size: 1.25rem; color: #666; max-width: 600px; margin: 0 auto;">
+        Respostas rápidas sobre cursos, mentoria, consultoria e pagamentos
+      </p>
+    </header>
+
+    {faqs.map((section) => (
+      <div style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem; border-bottom: 2px solid #FF6B00; padding-bottom: 0.5rem;">
+          {section.category}
+        </h2>
+        
+        <div style="display: grid; gap: 2rem;">
+          {section.questions.map((item) => (
+            <details style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; cursor: pointer;">
+              <summary style="font-size: 1.125rem; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                {item.q}
+                <span style="font-size: 1.5rem; color: #FF6B00;">›</span>
+              </summary>
+              <p style="margin-top: 1rem; color: #666; line-height: 1.7;">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <footer style="margin-top: 6rem; text-align: center; padding: 3rem; background: #f5f5f5; border-radius: 12px;">
+      <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">
+        Não encontrou sua resposta?
+      </h3>
+      <p style="color: #666; margin-bottom: 2rem;">
+        Entre em contato e responderemos em até 24 horas
+      </p>
+      <a 
+        href="/contato/" 
+        style="display: inline-block; background: #FF6B00; color: white; padding: 1rem 2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: transform 0.2s;"
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      >
+        Falar com o time
+      </a>
+    </footer>
+  </section>
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details[open] summary span {
+    transform: rotate(90deg);
+  }
+  
+  details summary span {
+    transition: transform 0.2s;
+  }
+</style>

@@ -76,7 +76,7 @@ export const navigation: NavLink[] = [
     submenu: [
       { label: "Materiais Gratuitos", href: "/recursos/materiais/" },
       { label: "Biblioteca Premium", href: "/recursos/biblioteca/" },
-      { label: "Blog Técnico", href: "/recursos/blog/" },
+      { label: "Blog Técnico", href: "/blog/" },
     ]
   },
   { 
@@ -91,13 +91,13 @@ export const navigation: NavLink[] = [
     label: "Sobre", 
     href: "/sobre/",
     submenu: [
-      { label: "Nossa Missão", href: "/sobre/missao/" },
+      { label: "Nossa Missão", href: "/sobre/nossa-missao/" },
       { label: "Equipe", href: "/sobre/equipe/" },
       { label: "Parceiros", href: "/sobre/parceiros/" },
-      { label: "FAQ", href: "/sobre/faq/" },
+      { label: "FAQ", href: "/faq/" },
     ]
   },
-  { label: "Contato", href: "/contact/" },
+  { label: "Contato", href: "/contato/" },
 ];
 
 export interface NavColumn {
@@ -130,14 +130,14 @@ export const footerNavigation: NavColumn[] = [
     links: [
       { label: "Materiais Gratuitos", href: "/recursos/materiais/" },
       { label: "Biblioteca Premium", href: "/recursos/biblioteca/" },
-      { label: "Blog Técnico", href: "/recursos/blog/" },
+      { label: "Blog", href: "/blog/" },
     ],
   },
   {
     title: "Suporte",
     links: [
-      { label: "Contato", href: "/contact/" },
-      { label: "FAQ", href: "/sobre/faq/" },
+      { label: "Contato", href: "/contato/" },
+      { label: "FAQ", href: "/faq/" },
       { label: "Parceiros", href: "/sobre/parceiros/" },
     ],
   },
@@ -145,6 +145,7 @@ export const footerNavigation: NavColumn[] = [
 
 /** Links legais (privacidade, termos) */
 export const legalNavigation: NavLink[] = [
-  { label: "Privacidade", href: "/legal/privacy/" },
-  { label: "Termos de Uso", href: "/legal/terms/" },
+  { label: "Termos de Uso", href: "/termos-de-uso/" },
+  { label: "Política de Privacidade", href: "/politica-de-privacidade/" },
+  { label: "Política de Cookies", href: "/politica-de-cookies/" },
 ];
