@@ -1,46 +1,47 @@
-/** Homepage copy. */
+/** Homepage copy — Blockchain Dev Lab */
+
 export const hero = {
-  lines: ["We make brands", "impossible", "to scroll past."],
+  lines: ["Aprenda", "Desenvolva", "Conquiste"],
   /** The line that ends in the capsule of cycling project covers. */
-  capsuleLine: 1,
+  capsuleLine: 2,
   intro:
-    "Lucenta is an independent design studio for companies that would rather be seen. Identity, digital, packaging and campaigns, made by one small team in Lisbon and New York.",
+    "Ecossistema completo de educação, desenvolvimento e inovação Web3. Transformamos desenvolvedores em especialistas blockchain através de cursos práticos, mentoria personalizada e projetos reais.",
 };
 
 export const selectedWork = {
-  title: "Recent projects",
+  title: "Projetos em Destaque",
   /** How many featured projects the homepage shows. */
-  limit: 5,
+  limit: 6,
 };
 
 /** The paragraph that lights up word by word as it scrolls past. */
 export const manifesto = {
   /** Read out by screen readers; the section has no visible heading. */
-  label: "About the studio",
-  text: "Most brands are polite. They blend in, play it safe and get forgotten by Friday. We think clarity is braver than noise: one idea, said with total conviction, in colour you can feel from across the street.",
-  link: { label: "Meet the studio", href: "/studio/" },
+  label: "Nossa Missão",
+  text: "A maioria dos cursos de blockchain ensina teoria. Nós acreditamos que expertise vem da prática: código real, auditorias reais, arquiteturas que vão para produção. Um desenvolvedor que entende cada linha, cada decisão, cada tradeoff.",
+  link: { label: "Conheça o Ecossistema", href: "/sobre/" },
 };
 
 export const servicesBlock = {
-  title: "Five ways in",
-  link: { label: "All services", href: "/services/" },
+  title: "Seis Pilares Estratégicos",
+  link: { label: "Ver todos os serviços", href: "/consultoria/" },
 };
 
 export const figures = [
-  { value: 12, suffix: "", label: "Years in practice" },
-  { value: 140, suffix: "+", label: "Brands launched" },
-  { value: 26, suffix: "", label: "Industry awards" },
-  { value: 18, suffix: "", label: "People, two studios" },
+  { value: 150, suffix: "+", label: "Alunos formados" },
+  { value: 30, suffix: "+", label: "Projetos auditados" },
+  { value: 95, suffix: "%", label: "Taxa de aprovação" },
+  { value: 24, suffix: "h", label: "Suporte ativo" },
 ];
 
 export const testimonial = {
   quote:
-    "They found the one idea in our business we had stopped noticing, then made the whole brand about it. Wholesale doubled before the new bags were even on shelves.",
-  name: "Inês Moreira",
-  role: "Founder, Halden Roasters",
+    "O curso de arquitetura de smart contracts foi decisivo. Aprendi padrões que nenhum tutorial ensina e consegui minha primeira vaga como engenheiro blockchain sênior em 3 meses.",
+  name: "Carlos Silva",
+  role: "Blockchain Engineer, DeFi Protocol",
 };
 
 export const journalBlock = {
-  title: "Notes from the studio",
-  link: { label: "Read the journal", href: "/journal/" },
+  title: "Insights Técnicos",
+  link: { label: "Ler o blog", href: "/recursos/blog/" },
 };
