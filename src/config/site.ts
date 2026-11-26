@@ -69,12 +69,18 @@ export const navigation: NavLink[] = [
   },
   { 
     label: "Laboratório & Consultoria", 
-    href: "/laboratorio-consultoria/",
+    href: "/solucoes-projetos/",
     submenu: [
-      { label: "Consultoria B2B", href: "/consultoria/" },
-      { label: "Laboratórios Práticos", href: "/laboratorio-consultoria/laboratorios/" },
-      { label: "Projetos & Cases", href: "/consultoria/cases/" },
-      { label: "Nosso Processo", href: "/consultoria/processo/" },
+      { label: "Arquitetura Blockchain", href: "/solucoes-projetos/consultoria/arquitetura/" },
+      { label: "Smart Contracts", href: "/solucoes-projetos/consultoria/smart-contracts/" },
+      { label: "Auditoria Técnica", href: "/solucoes-projetos/consultoria/auditoria/" },
+      { label: "Cases de Sucesso", href: "/solucoes-projetos/consultoria/cases/" },
+      { label: "Solicitar Orçamento", href: "/solucoes-projetos/consultoria/orcamento/" },
+      { label: "—", href: "#" },
+      { label: "Projetos para Iniciantes", href: "/solucoes-projetos/laboratorios/iniciantes/" },
+      { label: "Projetos Avançados", href: "/solucoes-projetos/laboratorios/avancados/" },
+      { label: "Galeria de Projetos", href: "/solucoes-projetos/laboratorios/galeria/" },
+      { label: "Open Source", href: "/solucoes-projetos/laboratorios/open-source/" },
     ]
   },
   { 
