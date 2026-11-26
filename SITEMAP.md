@@ -1,5 +1,58 @@
 # 📄 BLOCKCHAIN DEV LAB — Mapa do Site
 
+> **Versão 3.0 — Novo Menu 2025**
+
+---
+
+## ⚡ NOVO MENU PRINCIPAL (2025)
+
+| # | Menu | Função | Monetização |
+|---|------|--------|-------------|
+| 1 | **Início** | Apresentação | — |
+| 2 | **Cursos & Mentoria** | Aprender | Cursos + Mentoria |
+| 3 | **Laboratório & Consultoria** | Implementar | Consultoria B2B |
+| 4 | **E-books & Artigos** | Atrair + Aprofundar | E-books pagos |
+| 5 | **Ecossistema Web3** | Conectar | Assinatura comunidade |
+| 6 | **Sobre** | Institucional | — |
+
+### Navegação Atualizada (Header):
+
+```
+INÍCIO | CURSOS & MENTORIA ▾ | LABORATÓRIO & CONSULTORIA ▾ | E-BOOKS & ARTIGOS ▾ | ECOSSISTEMA WEB3 ▾ | SOBRE ▾
+```
+
+**CURSOS & MENTORIA ▾**
+- Cursos → `/educacao-mentoria/cursos/`
+- Trilhas de Aprendizado → `/educacao-mentoria/trilhas/`
+- Mentoria Individual → `/educacao-mentoria/mentoria-individual/`
+- Mentoria em Grupo → `/educacao-mentoria/mentoria-grupo/`
+- Nossos Mentores → `/educacao-mentoria/mentores/`
+
+**LABORATÓRIO & CONSULTORIA ▾**
+- Consultoria B2B → `/consultoria/`
+- Laboratórios Práticos → `/laboratorio-consultoria/laboratorios/`
+- Projetos & Cases → `/consultoria/cases/`
+- Nosso Processo → `/consultoria/processo/`
+
+**E-BOOKS & ARTIGOS ▾**
+- E-books Premium → `/recursos/ebooks/`
+- Artigos Técnicos → `/recursos/artigos/`
+- Guias Gratuitos → `/recursos/guias/`
+- Blog → `/blog/`
+
+**ECOSSISTEMA WEB3 ▾**
+- Comunidade → `/ecossistema/comunidade/`
+- Eventos & Workshops → `/ecossistema/eventos/`
+- Parceiros → `/ecossistema/parceiros/`
+- Oportunidades → `/ecossistema/oportunidades/`
+
+**SOBRE ▾**
+- Quem Somos → `/sobre/`
+- Nossa Missão → `/sobre/missao/`
+- Equipe → `/sobre/equipe/`
+- FAQ → `/faq/`
+- Contato → `/contato/`
+
 ---
 
 ## 1. VISÃO GERAL DO PROJETO

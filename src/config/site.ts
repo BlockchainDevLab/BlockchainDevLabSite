@@ -45,59 +45,69 @@ export interface NavLink {
 }
 
 /** 
- * NAVEGAÇÃO PRINCIPAL — 6 PILARES
+ * NAVEGAÇÃO PRINCIPAL — NOVO MENU 2025
  * 
- * 01. Educação & Mentoria → /educacao/ (Work collection)
- * 02. Consultoria → /consultoria/ (Services)
- * 03. Recursos (Materiais + Biblioteca + Blog) → /recursos/
- * 04. Laboratórios → /laboratorios/
- * 05. Ecossistema Web3 → /ecossistema/
- * 06. Sobre → /sobre/ (Studio)
+ * 1. Início → Apresentação
+ * 2. Cursos & Mentoria → Aprender (Monetização: Cursos + Mentoria)
+ * 3. Laboratório & Consultoria → Implementar (Monetização: Consultoria B2B)
+ * 4. E-books & Artigos → Atrair + Aprofundar (Monetização: E-books pagos)
+ * 5. Ecossistema Web3 → Conectar (Monetização: Assinatura comunidade)
+ * 6. Sobre → Institucional
  */
 export const navigation: NavLink[] = [
   { label: "Início", href: "/" },
   { 
-    label: "Educação & Mentoria", 
-    href: "/educacao/",
+    label: "Cursos & Mentoria", 
+    href: "/educacao-mentoria/",
     submenu: [
-      { label: "Cursos", href: "/educacao/cursos/" },
-      { label: "Trilhas de Aprendizado", href: "/educacao/trilhas/" },
-      { label: "Mentoria Individual", href: "/educacao/mentoria/" },
-      { label: "Nossos Mentores", href: "/educacao/mentores/" },
+      { label: "Cursos", href: "/educacao-mentoria/cursos/" },
+      { label: "Trilhas de Aprendizado", href: "/educacao-mentoria/trilhas/" },
+      { label: "Mentoria Individual", href: "/educacao-mentoria/mentoria-individual/" },
+      { label: "Mentoria em Grupo", href: "/educacao-mentoria/mentoria-grupo/" },
+      { label: "Nossos Mentores", href: "/educacao-mentoria/mentores/" },
     ]
   },
   { 
-    label: "Consultoria", 
-    href: "/consultoria/",
+    label: "Laboratório & Consultoria", 
+    href: "/laboratorio-consultoria/",
+    submenu: [
+      { label: "Consultoria B2B", href: "/consultoria/" },
+      { label: "Laboratórios Práticos", href: "/laboratorio-consultoria/laboratorios/" },
+      { label: "Projetos & Cases", href: "/consultoria/cases/" },
+      { label: "Nosso Processo", href: "/consultoria/processo/" },
+    ]
   },
   { 
-    label: "Recursos", 
+    label: "E-books & Artigos", 
     href: "/recursos/",
     submenu: [
-      { label: "Materiais Gratuitos", href: "/recursos/materiais/" },
-      { label: "Biblioteca Premium", href: "/recursos/biblioteca/" },
-      { label: "Blog Técnico", href: "/blog/" },
+      { label: "E-books Premium", href: "/recursos/ebooks/" },
+      { label: "Artigos Técnicos", href: "/recursos/artigos/" },
+      { label: "Guias Gratuitos", href: "/recursos/guias/" },
+      { label: "Blog", href: "/blog/" },
     ]
-  },
-  { 
-    label: "Laboratórios", 
-    href: "/laboratorios/",
   },
   { 
     label: "Ecossistema Web3", 
     href: "/ecossistema/",
+    submenu: [
+      { label: "Comunidade", href: "/ecossistema/comunidade/" },
+      { label: "Eventos & Workshops", href: "/ecossistema/eventos/" },
+      { label: "Parceiros", href: "/ecossistema/parceiros/" },
+      { label: "Oportunidades", href: "/ecossistema/oportunidades/" },
+    ]
   },
   { 
     label: "Sobre", 
     href: "/sobre/",
     submenu: [
-      { label: "Nossa Missão", href: "/sobre/nossa-missao/" },
+      { label: "Quem Somos", href: "/sobre/" },
+      { label: "Nossa Missão", href: "/sobre/missao/" },
       { label: "Equipe", href: "/sobre/equipe/" },
-      { label: "Parceiros", href: "/sobre/parceiros/" },
       { label: "FAQ", href: "/faq/" },
+      { label: "Contato", href: "/contato/" },
     ]
   },
-  { label: "Contato", href: "/contato/" },
 ];
 
 export interface NavColumn {
@@ -105,40 +115,42 @@ export interface NavColumn {
   links: NavLink[];
 }
 
-/** FOOTER — Organizado por pilares */
+/** FOOTER — Organizado pelo novo menu */
 export const footerNavigation: NavColumn[] = [
   {
-    title: "Educação",
+    title: "Aprender",
     links: [
-      { label: "Cursos", href: "/educacao/cursos/" },
-      { label: "Trilhas", href: "/educacao/trilhas/" },
-      { label: "Mentoria", href: "/educacao/mentoria/" },
-      { label: "Mentores", href: "/educacao/mentores/" },
+      { label: "Cursos", href: "/educacao-mentoria/cursos/" },
+      { label: "Trilhas", href: "/educacao-mentoria/trilhas/" },
+      { label: "Mentoria", href: "/educacao-mentoria/mentoria-individual/" },
+      { label: "Mentores", href: "/educacao-mentoria/mentores/" },
     ],
   },
   {
-    title: "Empresa",
+    title: "Implementar",
     links: [
       { label: "Consultoria B2B", href: "/consultoria/" },
-      { label: "Laboratórios", href: "/laboratorios/" },
-      { label: "Ecossistema Web3", href: "/ecossistema/" },
-      { label: "Sobre Nós", href: "/sobre/" },
+      { label: "Laboratórios", href: "/laboratorio-consultoria/laboratorios/" },
+      { label: "Cases", href: "/consultoria/cases/" },
+      { label: "Processo", href: "/consultoria/processo/" },
     ],
   },
   {
-    title: "Recursos",
+    title: "Conhecimento",
     links: [
-      { label: "Materiais Gratuitos", href: "/recursos/materiais/" },
-      { label: "Biblioteca Premium", href: "/recursos/biblioteca/" },
+      { label: "E-books Premium", href: "/recursos/ebooks/" },
+      { label: "Artigos", href: "/recursos/artigos/" },
+      { label: "Guias Gratuitos", href: "/recursos/guias/" },
       { label: "Blog", href: "/blog/" },
     ],
   },
   {
-    title: "Suporte",
+    title: "Comunidade",
     links: [
+      { label: "Ecossistema Web3", href: "/ecossistema/" },
+      { label: "Eventos", href: "/ecossistema/eventos/" },
+      { label: "Parceiros", href: "/ecossistema/parceiros/" },
       { label: "Contato", href: "/contato/" },
-      { label: "FAQ", href: "/faq/" },
-      { label: "Parceiros", href: "/sobre/parceiros/" },
     ],
   },
 ];
