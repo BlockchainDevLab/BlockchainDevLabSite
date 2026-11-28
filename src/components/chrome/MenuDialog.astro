@@ -21,10 +21,35 @@ const path = Astro.url.pathname;
         {
           navigation.map((link, index) => (
             <li class="menu-item" style={`--i:${index}`}>
-              <a href={link.href} class="display menu-link" aria-current={path.startsWith(link.href) ? "page" : undefined}>
-                <span class="meta">{String(index + 1).padStart(2, "0")}</span>
-                {link.label}
-              </a>
+              {link.submenu ? (
+                <details class="menu-dropdown">
+                  <summary class="display menu-link menu-trigger">
+                    <span class="meta">{String(index + 1).padStart(2, "0")}</span>
+                    <span class="flex-1">{link.label}</span>
+                    <svg class="menu-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </summary>
+                  <ul class="menu-submenu">
+                    {link.submenu.map((sublink) => (
+                      sublink.label === "—" ? (
+                        <li class="menu-divider" role="separator"></li>
+                      ) : (
+                        <li>
+                          <a href={sublink.href} class="menu-sublink">
+                            {sublink.label}
+                          </a>
+                        </li>
+                      )
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a href={link.href} class="display menu-link" aria-current={path.startsWith(link.href) ? "page" : undefined}>
+                  <span class="meta">{String(index + 1).padStart(2, "0")}</span>
+                  {link.label}
+                </a>
+              )}
             </li>
           ))
         }
@@ -114,6 +139,75 @@ const path = Astro.url.pathname;
 
   .menu-link[aria-current="page"] {
     color: var(--signal);
+  }
+
+  /* Mobile Dropdown Styles */
+  .menu-dropdown {
+    display: block;
+  }
+
+  .menu-trigger {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .menu-trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .menu-arrow {
+    margin-top: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    opacity: 0.6;
+  }
+
+  details[open] .menu-arrow {
+    transform: rotate(180deg);
+  }
+
+  .menu-submenu {
+    list-style: none;
+    padding: 0.5rem 0 1rem 0;
+    margin: 0;
+    animation: submenu-expand 0.3s ease;
+  }
+
+  @keyframes submenu-expand {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .menu-sublink {
+    display: block;
+    padding: 0.75rem 1rem 0.75rem 4.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+    transition: 
+      color 0.2s ease,
+      padding-left 0.2s ease;
+  }
+
+  .menu-sublink:hover {
+    color: var(--signal);
+    padding-left: 5rem;
+  }
+
+  .menu-divider {
+    height: 1px;
+    margin: 0.75rem 4.5rem 0.75rem 4.5rem;
+    background: var(--line);
+    opacity: 0.3;
   }
 </style>
 
